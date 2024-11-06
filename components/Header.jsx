@@ -1,3 +1,4 @@
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 import Link from 'next/link'
 
 const Header = () => {
@@ -16,7 +17,12 @@ const Header = () => {
           <ul className='flex gap-4'>
             <Link href='/'>Home</Link>
             <Link href='/about'>about</Link>
-            <Link href='/sign-in'>sign in</Link>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
           </ul>
         </nav>
       </div>
